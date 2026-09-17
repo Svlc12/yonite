@@ -124,6 +124,50 @@
     border: none;
   }
 
+  .hero .section-inner { max-width: 1080px; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "media"
+      "form";
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-heading { grid-area: heading; }
+  .hero-form-block { grid-area: form; }
+  .hero-media { grid-area: media; display: flex; justify-content: center; }
+
+  .hero-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 24px 48px rgba(31, 41, 55, 0.16), 0 6px 16px rgba(31, 41, 55, 0.08);
+  }
+
+  @media (min-width: 901px) {
+    .hero-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "heading media"
+        "form    media";
+      gap: 0 56px;
+    }
+
+    .hero-heading, .hero-form-block { text-align: right; }
+
+    .hero-heading .gold-divider { margin: 32px 0 32px auto; }
+
+    .hero-form-block form.waitlist-form { margin: 40px 0 0 auto; }
+    .hero-form-block .form-msg { text-align: right; }
+
+    .hero-image { max-width: 420px; }
+  }
+
   form.waitlist-form {
     display: flex;
     gap: 12px;
@@ -329,16 +373,26 @@
 
   <section class="hero">
     <div class="section-inner">
-      <span class="hero-eyebrow">בקרוב</span>
-      <h1>האיזון המושלם לעור שלך</h1>
-      <p class="subtitle">מדע ביוטכנולוגי מתקדם שנולד מתוך שנים של ניסיון מקצועי והבנה מעמיקה של צורכי העור.</p>
-      <hr class="gold-divider">
+      <div class="hero-grid">
+        <div class="hero-heading">
+          <span class="hero-eyebrow">בקרוב</span>
+          <h1>האיזון המושלם לעור שלך</h1>
+          <p class="subtitle">מדע ביוטכנולוגי מתקדם שנולד מתוך שנים של ניסיון מקצועי והבנה מעמיקה של צורכי העור.</p>
+          <hr class="gold-divider">
+        </div>
 
-      <form class="waitlist-form" id="hero-form" action="https://formspree.io/f/mrpbgqza" method="POST">
-        <input type="email" name="email" placeholder="כתובת האימייל שלך" required aria-label="כתובת אימייל">
-        <button type="submit" class="btn-gold">הצטרפות לרשימת ההמתנה</button>
-      </form>
-      <p id="hero-form-msg" class="form-msg" role="status"></p>
+        <div class="hero-media">
+          <img src="product.png" alt="מוצר טיפוח העור של YONITÉ" class="hero-image" width="1024" height="1024" loading="eager">
+        </div>
+
+        <div class="hero-form-block">
+          <form class="waitlist-form" id="hero-form" action="https://formspree.io/f/mrpbgqza" method="POST">
+            <input type="email" name="email" placeholder="כתובת האימייל שלך" required aria-label="כתובת אימייל">
+            <button type="submit" class="btn-gold">הצטרפות לרשימת ההמתנה</button>
+          </form>
+          <p id="hero-form-msg" class="form-msg" role="status"></p>
+        </div>
+      </div>
     </div>
   </section>
 
