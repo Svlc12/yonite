@@ -392,6 +392,47 @@
 
   .waitlist-cta input[type="email"]::placeholder { color: rgba(250, 250, 250, 0.45); }
 
+  .waitlist-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "media";
+    align-items: center;
+    gap: 40px;
+  }
+
+  .waitlist-content { grid-area: content; }
+  .waitlist-media { grid-area: media; display: flex; justify-content: center; }
+
+  .waitlist-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (min-width: 901px) {
+    .waitlist-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "content media";
+      gap: 0 56px;
+      text-align: right;
+    }
+
+    .waitlist-content .section-eyebrow,
+    .waitlist-content .section-title,
+    .waitlist-content .section-lead {
+      text-align: right;
+    }
+
+    .waitlist-content form.waitlist-form { margin: 40px 0 0 auto; }
+    .waitlist-content .form-msg { text-align: right; }
+
+    .waitlist-image { max-width: 420px; }
+  }
+
   /* Footer */
   footer.site-footer {
     padding: 40px 24px;
@@ -497,15 +538,23 @@
 
   <section class="waitlist-section">
     <div class="waitlist-cta">
-      <span class="section-eyebrow" style="color:#D4AF37;">אל תפספסו</span>
-      <h2 class="section-title">היו הראשונים לדעת</h2>
-      <p class="section-lead">הצטרפו לרשימת ההמתנה שלנו וקבלו עדכון ברגע שהקולקציה של YONITÉ תעלה לאוויר.</p>
+      <div class="waitlist-grid">
+        <div class="waitlist-content">
+          <span class="section-eyebrow" style="color:#D4AF37;">אל תפספסו</span>
+          <h2 class="section-title">היו הראשונים לדעת</h2>
+          <p class="section-lead">הצטרפו לרשימת ההמתנה שלנו וקבלו עדכון ברגע שהקולקציה של YONITÉ תעלה לאוויר.</p>
 
-      <form class="waitlist-form" id="footer-form" action="https://formspree.io/f/mrpbgqza" method="POST">
-        <input type="email" name="email" placeholder="כתובת האימייל שלך" required aria-label="כתובת אימייל">
-        <button type="submit" class="btn-gold">הצטרפות לרשימת ההמתנה</button>
-      </form>
-      <p id="footer-form-msg" class="form-msg" role="status"></p>
+          <form class="waitlist-form" id="footer-form" action="https://formspree.io/f/mrpbgqza" method="POST">
+            <input type="email" name="email" placeholder="כתובת האימייל שלך" required aria-label="כתובת אימייל">
+            <button type="submit" class="btn-gold">הצטרפות לרשימת ההמתנה</button>
+          </form>
+          <p id="footer-form-msg" class="form-msg" role="status"></p>
+        </div>
+
+        <div class="waitlist-media">
+          <img src="sunscreen.png" alt="מוצר הגנה מהשמש של YONITÉ" class="waitlist-image" width="1254" height="1254" loading="lazy">
+        </div>
+      </div>
     </div>
   </section>
 
